@@ -1,0 +1,449 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content/>
+    <meta name="keywords" content/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "owl.carousel.min.css" %}">
+    <link rel="stylesheet" href="{% static "owl.theme.default.min.css" %}">
+    <link rel="stylesheet" href="{% static "jquery.fancybox.min.css" %}">
+    <link rel="stylesheet" href="{% static "fonts/icomoon/style.css" %}">
+    <link rel="stylesheet" href="{% static "fonts/flaticon/font/flaticon.css" %}">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <title>Orbit</title>
+    <script nonce="e813c392-53e2-4972-bb24-4874aa8e2266">(function (w, d) {
+        !function (j, k, l, m) {
+            j[l] = j[l] || {};
+            j[l].executed = [];
+            j.zaraz = {deferred: [], listeners: []};
+            j.zaraz.q = [];
+            j.zaraz._f = function (n) {
+                return async function () {
+                    var o = Array.prototype.slice.call(arguments);
+                    j.zaraz.q.push({m: n, a: o})
+                }
+            };
+            for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
+            j.zaraz.init = () => {
+                var q = k.getElementsByTagName(m)[0], r = k.createElement(m), s = k.getElementsByTagName("title")[0];
+                s && (j[l].t = k.getElementsByTagName("title")[0].text);
+                j[l].x = Math.random();
+                j[l].w = j.screen.width;
+                j[l].h = j.screen.height;
+                j[l].j = j.innerHeight;
+                j[l].e = j.innerWidth;
+                j[l].l = j.location.href;
+                j[l].r = k.referrer;
+                j[l].k = j.screen.colorDepth;
+                j[l].n = k.characterSet;
+                j[l].o = (new Date).getTimezoneOffset();
+                if (j.dataLayer) for (const w of Object.entries(Object.entries(dataLayer).reduce(((x, y) => ({...x[1], ...y[1]})), {}))) zaraz.set(w[0], w[1], {scope: "page"});
+                j[l].q = [];
+                for (; j.zaraz.q.length;) {
+                    const z = j.zaraz.q.shift();
+                    j[l].q.push(z)
+                }
+                r.defer = !0;
+                for (const A of [localStorage, sessionStorage]) Object.keys(A || {}).filter((C => C.startsWith("_zaraz_"))).forEach((B => {
+                    try {
+                        j[l]["z_" + B.slice(7)] = JSON.parse(A.getItem(B))
+                    } catch {
+                        j[l]["z_" + B.slice(7)] = A.getItem(B)
+                    }
+                }));
+                r.referrerPolicy = "origin";
+                r.src = "https://preview.colorlib.com/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[l])));
+                q.parentNode.insertBefore(r, q)
+            };
+            ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener("DOMContentLoaded", zaraz.init)
+        }(w, d, "zarazData", "script");
+    })(window, document);</script>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<nav class="site-nav js-site-navbar mb-5 site-navbar-target">
+    <div class="container">
+        <div class="site-navigation text-center">
+            <a href="{% url 'home' %}" class="d-block text-center float-left logo">AI</a>
+            <ul class="js-clone-nav ml-0 pl-0 d-none d-lg-inline-block site-menu mx-auto text-center">
+                <li class="active"><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="#about-section" class="nav-link">About</a></li>
+                <li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
+                <li><a href="#services-section" class="nav-link">Services</a></li>
+                <li><a href="#resume-section" class="nav-link">Resume</a></li>
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#"
+               class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block light d-lg-none"
+               data-toggle="collapse" data-target="#main-navbar">
+                <span></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="site-blocks-cover overlay" style="background-image: url('/static/images/hero_img.jpg');" data-aos="fade"
+     data-stellar-background-ratio="0.5" id="home-section">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-lg-8">
+                <h1 class="text-white" data-aos="fade-up" data-aos-delay="0">I'm {{ info.name }} {{ info.lname }}
+                    <br> {{ info.job }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="site-section" id="about-section">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="0">
+                <div class="img-wrap">
+                    <img src="{% static "images/image_1_long.jpg" %}" alt="Image placeholder" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-5 pl-lg-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-heading">
+                    <h2>My Bio</h2>
+                </div>
+                <p>{{ info.bio }}</p>
+                <div class="my-5">
+                    {% for i in skills %}
+                        <div class="skill">
+                            <h3>{{ i.title }}</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: {{ i.number }}%"
+                                     aria-valuenow="{{ i.number }}"
+                                     aria-valuemin="0" aria-valuemax="100">
+                                    <span>{{ i.number }}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <p>
+                    <a href="#contact-section" class="btn btn-primary smoothscroll">Hire Me</a>
+                    <a href="/static/Xolmatov%20%20Dilshod.pdf" class="btn btn-secondary">Download CV</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="untree_co-section" id="portfolio-section">
+    <div class="container">
+        <div class="row">
+            <div class="section-heading text-center col-md-12" data-aos="fade-up" data-aos-delay="0">
+                <h2>My Portfolio</h2>
+            </div>
+        </div>
+        <div class="row grid">
+            {% for i in portfolio %}
+                <div class="single-portfolio col-sm-4 all mockup">
+                    <a href="{{ i.url }}" target="_blank">
+                        <img src="{{ i.image.url }}" alt="Image" class="img-fluid">
+                        <div class="contents">
+                            <h3>{{ i.title }}</h3>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="untree_co-section" id="services-section">
+    <div class="container">
+        <div class="row">
+            <div class="section-heading text-center col-md-12 mb-5" data-aos="fade-up" data-aos-delay="0">
+                <h2>Services</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in services %}
+                <div class="col-md-6 col-lg-4 text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="site-service-item" data-animate-effect="fadeIn">
+                <span class="icon"><img class="mb-4" width="77px" height="77px" src="{{ i.icon.url }}" alt="Image"></span>
+                    <h3 class="mb-4">{{ i.title }}</h3>
+                    <p>{{ i.about }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="untree_co-section" id="resume-section">
+    <div class="container">
+        <div class="row">
+            <div class="section-heading text-center col-md-12 mb-5" data-aos="fade-up" data-aos-delay="0">
+                <h2>Resume</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <img src="/static/images/image_1_long.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-lg-7 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="mb-5">Work Experience</h3>
+                {% for i in works %}
+                    <div class="resume-item d-flex work">
+                    <div>
+                        <h4>{{ i.title }}</h4>
+                        <div class="d-flex">
+                            <div class="d-flex resume-meta">
+<span class="mr-3">
+<span class="icon">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd"
+      d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+<path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+</svg>
+</span>
+<span>{{ i.company }}</span>
+</span>
+                                <span class="icon">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+</svg>
+</span>
+                                <span>{{ i.address }}</span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="ml-auto resume-meta">
+                        <span class="icon">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-event" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd"
+      d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
+<path fill-rule="evenodd"
+      d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z"/>
+<rect width="2" height="2" x="11" y="6" rx=".5"/>
+</svg>
+</span>
+                        <span>{{ i.created|date:"M Y" }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+                <h3 class="mt-5 mb-3">Education</h3>
+                {% for i in education %}
+                    <div class="resume-item d-flex work">
+                    <div>
+                        <h4>{{ i.title }}</h4>
+                        <div class="d-flex">
+                            <div class="d-flex resume-meta">
+<span class="mr-3">
+<span class="icon">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-event" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd"
+      d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
+<path fill-rule="evenodd"
+      d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z"/>
+<rect width="2" height="2" x="11" y="6" rx=".5"/>
+</svg>
+</span>
+<span>{{ i.university }}</span>
+</span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="ml-auto resume-meta">
+<span class="icon">
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-event" fill="currentColor"
+     xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd"
+      d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
+<path fill-rule="evenodd"
+      d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z"/>
+<rect width="2" height="2" x="11" y="6" rx=".5"/>
+</svg>
+</span>
+                        <span>{{ i.place }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="site-section bg-light" id="testimonials-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12" data-aos="fade-up" data-aos-delay="0">
+                <div class="section-heading text-center">
+                    <h2>Happy Clients</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in happies %}
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="block-47 d-flex mb-5">
+                        <div class="block-47-image">
+                            <img src="{{ i.avatar.url }}" alt="Image placeholder" class="img-fluid">
+                        </div>
+                        <blockquote class="block-47-quote">
+                            <p>&ldquo;{{ i.message }}&rdquo;</p>
+                            <cite class="block-47-quote-author">&mdash; {{ i.name }} {{ i.lname }}</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="untree_co-section" id="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-5" data-aos="fade-up" data-aos-delay="0">
+                <div class="section-heading text-center">
+                    <h2>Contact Me</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <form class="contact-form" method="post" action="{% url 'contact_save' %}" data-aos="fade-up"
+                      data-aos-delay="100">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class for="fname">First name</label>
+                                {{ contact.name }}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label class for="lname">Last name</label>
+                                {{ contact.lname }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class for="email">Email address</label>
+                        {{ contact.email }}
+                    </div>
+                    <div class="form-group">
+                        <label class for="message">Message</label>
+                        {{ contact.message }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="h5 mb-4">Contact Info</h3>
+                <address class="text-black d-flex"><span
+                        class="mt-1 icon-room mr-2"></span><span>{{ contactinfo.address }}</span>
+                </address>
+                <ul class="list-unstyled ul-links mb-4">
+                    <li class="mb-1 d-flex"><span
+                            class="mt-1 icon-phone mr-2"></span>
+                        <p>{{ contactinfo.phone1 }}</p></li>
+                    <li class="mb-1 d-flex mt-0 mb-0"><span
+                            class="mt-1 icon-phone mr-2"></span>
+                        <p>{{ contactinfo.phone2 }}</p></li>
+                    <li class="mb-1"><span class="mt-1 icon-envelope mr-2"></span>{{ contactinfo.email }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-footer">
+    <div class="footer-dots"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h2>{{ info.name }} {{ info.lname }}</h2>
+                    <h3>{{ info.job }}</h3>
+                </div>
+                <div class="widget">
+                    <h3>Connect</h3>
+                    <ul class="list-unstyled social">
+                        <li><a href="#"><span class="icon-instagram"></span></a></li>
+                        <li><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                        <li><a href="#"><span class="icon-pinterest"></span></a></li>
+                        <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 ml-auto">
+                <div class="widget">
+                    <h3>Navagation</h3>
+                    <ul class="list-unstyled float-left links">
+                        {% for i in skills %}
+                            <li><a href="#about-section">{{ i.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="widget">
+                    <h3>Services</h3>
+                    <ul class="list-unstyled float-left links">
+                        {% for i in services %}
+                            <li><a href="#services-section">{{ i.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h3>Contact</h3>
+                    <address>{{ contactinfo.address }}</address>
+                    <ul class="list-unstyled links mb-4">
+                        <li><p>{{ contactinfo.phone1 }}</p></li>
+                        <li><p>{{ contactinfo.phone2 }}</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static "jquery-3.4.1.min.js" %}"></script>
+<script src="{% static "jquery-migrate-3.0.1.min.js" %}"></script>
+<script src="{% static "popper.min.js" %}"></script>
+<script src="{% static "bootstrap.min.js" %}"></script>
+<script src="{% static "jquery.easing.1.3.js" %}"></script>
+<script src="{% static "jquery.stellar.min.js" %}"></script>
+<script src="{% static "jquery.waypoints.min.js" %}"></script>
+<script src="{% static "isotope.pkgd.min.js" %}"></script>
+<script src="{% static "jquery.fancybox.min.js" %}"></script>
+<script src="{% static "imagesloaded.pkgd.js" %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"827ff92bd8c90a29","version":"2023.10.0","token":"cd0b4b3a733644fc843ef0b185f98241"}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
